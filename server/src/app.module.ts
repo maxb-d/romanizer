@@ -9,8 +9,18 @@ import { UsersModule } from './users/users.module';
 
 
 @Module({
-  imports: [AuthModule, PrismaModule, UsersModule],
-  controllers: [AppController, ConversionController],
-  providers: [AppService, ConversionService],
+  imports: [
+    AuthModule, 
+    PrismaModule, 
+    UsersModule,
+  ],
+  controllers: [
+    AppController, 
+    ConversionController
+  ],
+  providers: [
+    AppService, 
+    ConversionService
+  ],
 })
 export class AppModule {}

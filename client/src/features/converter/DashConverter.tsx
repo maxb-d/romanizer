@@ -4,7 +4,7 @@ import Asset from '@/assets/rightConv.jpg'
 import ActionButton from '@/components/ActionButton'
 import Toast from '@/components/Toast'
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useForm } from 'react-hook-form'
 
 import API from '@/lib/axiosApi'
@@ -13,7 +13,27 @@ type Props = {}
 
 const DashConverter = (props: Props) => {
     const [num, setNum] = useState<number>(0)
-    const [romNum, setRomNum] = useState<string>('')
+
+    const [sseData, setSseData] = useState<string>("")
+
+    useEffect(() => {
+        const sse = new EventSource('http://localhost:3000/conversion/event')
+
+        function handleStream(e: any) {
+            console.log(e)
+            setSseData(e.data)
+        }
+
+        sse.onmessage = e => {handleStream(e)}
+
+        sse.onerror = e => {
+            sse.close()
+        }
+
+        return () => {
+            sse.close()
+        }
+    }, [])
 
     const {
         register,
@@ -37,10 +57,6 @@ const DashConverter = (props: Props) => {
         const response = await API.post('/conversion', {
             decNumber: num
         }, { withCredentials: true })
-            .then(res => {
-                const romNum = res.data.convo
-                setRomNum(romNum)
-            })
     }
 
   return (
@@ -96,7 +112,7 @@ const DashConverter = (props: Props) => {
             <img src={Asset} className='relative mt-12 h-4/6 w-4/6'/>
             <div className='absolute mt-10 mr-28 font-mynerve text-[60px] text-red-600 font-bold'>
                 <div className='border-t border-2 border-red-600'></div>
-                <p>{romNum}</p>
+                <p>{sseData}</p>
                 <div className='border-t border-2 border-red-600'></div>
             </div>
             
