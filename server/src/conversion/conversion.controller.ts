@@ -25,6 +25,6 @@ export class ConversionController {
     @Sse('event')
     sendEvent(): Observable<MessageEventConv> {
         // Event every second
-        return interval(1000).pipe(map((_) => ({data: this.conversionService.getConversionEvent(this.confortably_numb).convo === 'undefinedundefinedundefined'? "" : this.conversionService.getConversionEvent(this.confortably_numb).convo } as MessageEventConv)));
+        return interval(1000).pipe(map((_) => ({data: this.conversionService.getConversion(this.confortably_numb).convo === 'undefinedundefinedundefined'? "" : this.conversionService.getConversion(this.confortably_numb).convo } as MessageEventConv)));
   }
 }

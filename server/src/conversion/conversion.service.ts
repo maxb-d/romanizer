@@ -6,10 +6,6 @@ import { Conversion } from "./conversion.model";
 export class ConversionService {
     private conversion: Conversion = {convo: ""};
 
-    getConversionEvent(decNumber: number) {
-        this.computeConversion(decNumber)
-        return this.conversion;
-    }
     getConversion(decNumber: number) {
         this.computeConversion(decNumber)
         return this.conversion;
