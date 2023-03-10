@@ -1,5 +1,5 @@
 export class Conversion {
     constructor(
-        public convo: number, 
+        public convo: string, 
     ) {}
 }

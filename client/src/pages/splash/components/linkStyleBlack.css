@@ -1,0 +1,13 @@
+.link-width-black::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #000000;
+    transition: width .3s;
+}
+
+.link-width-black:hover::after {
+    width: 100%;
+    transition: width .3s;
+}

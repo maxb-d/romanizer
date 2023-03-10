@@ -8,11 +8,14 @@ module.exports = {
     extend: {
       colors: {
         "pink-logo": "#ffa8ec",
+        "blue-logo": "#466877",
+        "toast-color": "#fff7ed",
       },
       backgroundImage: (theme) => ({
       }),
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
+        mynerve: ["Mynerve", "sans-serif"],
       },
       content: {
         fav: "url('./assets/favSized.png')",

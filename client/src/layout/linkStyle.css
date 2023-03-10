@@ -1,0 +1,13 @@
+.link-width::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ffa8ec;
+    transition: width .3s;
+}
+
+.link-width:hover::after {
+    width: 100%;
+    transition: width .3s;
+}
