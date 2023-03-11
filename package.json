@@ -1,0 +1,28 @@
+{
+  "name": "romanizer",
+  "version": "1.0.0",
+  "description": "Rommanizer's purpose is to convert integers to roman numerals",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client-install": "cd client && yarn",
+    "server-install": "cd server && yarn && npx prisma generate && npx prisma migrate dev --name init",
+    "install-all-deps": "concurrently \"yarn server-install\" \"yarn client-install\"",
+    "server": "cd server && yarn start:dev",
+    "client": "cd client && yarn dev",
+    "dev": "concurrently \"yarn server\" \"yarn run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxb-d/romanizer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maxb-d/romanizer/issues"
+  },
+  "homepage": "https://github.com/maxb-d/romanizer#readme",
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
