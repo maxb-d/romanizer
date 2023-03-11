@@ -17,7 +17,7 @@ const DashConverter = (props: Props) => {
     const [sseData, setSseData] = useState<string>("")
 
     useEffect(() => {
-        const sse = new EventSource('http://localhost:3000/conversion/event')
+        const sse = new EventSource(import.meta.env.VITE_API_BASE_URL + '/conversion/event')
 
         function handleStream(e: any) {
             console.log(e)

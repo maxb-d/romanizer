@@ -1,5 +1,5 @@
 import { Body, Controller, Post, UseGuards, Sse, MessageEvent } from '@nestjs/common';
-import { JwtAuthGuard } from 'src/auth/jwt.guard';
+import { JwtAuthGuard } from '../auth/jwt.guard';
 import { ConversionService } from './conversion.service';
 import { interval, Observable, map } from 'rxjs';
 
