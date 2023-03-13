@@ -29,8 +29,3 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
         return payload
     }
 }
-
-//  if (req.headers.cookie) {
-//     const token = req.headers.cookie.slice(6, req.headers.cookie.length)
-//     return token
-// }

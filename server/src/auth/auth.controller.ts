@@ -8,20 +8,16 @@ export class AuthController {
 
   @Post('signup')
   signup(@Body() dto: AuthDto) {
-    console.log('SIGNUP')
     return this.authService.signup(dto)
   }
 
   @Post('signin')
   signin(@Body() dto: AuthDto, @Req() req: any, @Res() res: any) {
-
-    console.log('SIGNIN  dto = ', dto)
     return this.authService.signin(dto, req, res)
   }
 
   @Get('signout')
   signout(@Req() req: any, @Res() res: any) {
-    console.log('SIGNOUT')
     return this.authService.signout(req, res)
   }
 }
